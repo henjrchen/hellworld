@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-//Jason Version 1
 package com.example.android.trivialdrivesample;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
