@@ -1,0 +1,30 @@
+# helloworld-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld
+  labels:
+    app: hello
+spec:
+  containers:
+  - name: helloworld
+    image: henjrchen/helloworld:v1
+    ports:
+    - containerPort: 8080
+
+---
+
+# helloworld-pod-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 31180
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hello
