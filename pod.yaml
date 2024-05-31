@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - name: mypd
+        mountPath: /app/data
+  volumes:
+    - name: mypd
+      hostPath: 
+        path: /Volumes/nfsshare/ffm-builder
+#       path: /run/desktop/mnt/host/wsl/Volumes
+#        path: "D:\\code\\k8s\\yaml\\pvc"
+#        type: DirectoryOrCreate    
+#      persistentVolumeClaim:
+#        claimName: pvc-hostpath
