@@ -10,7 +10,7 @@ spec:
     - ReadWriteMany
   storageClassName: "we"    
   hostPath:
-    path: /Volumes/nfsshare/ffm-builder2
+    path: /mnt/d/host-data
     
 ---
 apiVersion: v1
@@ -39,10 +39,10 @@ spec:
         mountPath: /app/data
   volumes:
     - name: mypd
-      hostPath: 
-        path: /Volumes/nfsshare/ffm-builder2
-#        type: DirectoryOrCreate    
-#      persistentVolumeClaim:
-#        claimName: pvc-hostpath
+#      hostPath:
+#        path: /mnt/d/host-data
+#        type: Directory
+      persistentVolumeClaim:
+        claimName: pvc-hostpath
 
 ---

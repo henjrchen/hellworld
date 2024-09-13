@@ -3,6 +3,12 @@ kind: Pod
 metadata:
   name: mypod
 spec:
+  nodeSelector:
+    gputype: v100
+  tolerations:
+  - key: "gpucab"
+    operator: "Exists"
+    effect: "NoSchedule"
   containers:
     - name: myfrontend
       image: nginx
@@ -14,7 +20,7 @@ spec:
       hostPath: 
         path: /Volumes/nfsshare/ffm-builder
 #        wsl's directory seem can't be see at pod
-#        path: /mnt/d/host-data
+#        path: /mnt/d/host-data        
 #       path: /run/desktop/mnt/host/wsl/Volumes
 #        path: "D:\\code\\k8s\\yaml\\pvc"
 #        type: DirectoryOrCreate    
